@@ -9,16 +9,14 @@
 import UIKit
 
 class StoryboardViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel!
+    //Create an IBOutlet for the label
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = "Storyboard"
+        //Set the text of the title label
     }
     
-    @IBAction func changeText(_ sender: Any) {
-        titleLabel.text = "Hello"
-    }
+    //Create an IBAction which changes the label text
     
 }
