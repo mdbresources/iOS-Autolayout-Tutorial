@@ -13,20 +13,18 @@ class AutoLayoutViewController: UIViewController {
     var blueView: UIView!
     var greenView: UIView!
     
-    var stackView: UIStackView!
+    var innerStackView: UIStackView!
+    var outerStackView: UIStackView!
     
     var textLabel: UILabel!
     
     private let padding: CGFloat = 10.0
     
-    private var landscapeConstraints: [NSLayoutConstraint] = []
-    private var portraitConstraints: [NSLayoutConstraint] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         createViews()
-        setupRedViewConstraints()
+        setupSizeConstraints()
         setUpStackViewConstraints()
         setUpTextLabel()
         amendConstraints()
@@ -36,61 +34,54 @@ class AutoLayoutViewController: UIViewController {
         redView = UIView()
         redView.backgroundColor = .red
         self.redView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(redView)
         
         textLabel = UILabel()
         self.redView.addSubview(textLabel)
         
         self.blueView = UIView()
         blueView.backgroundColor = .blue
+        self.blueView.translatesAutoresizingMaskIntoConstraints = false
         
         self.greenView = UIView()
         greenView.backgroundColor = .green
+        self.greenView.translatesAutoresizingMaskIntoConstraints = false
         
-        stackView = UIStackView(arrangedSubviews: [self.blueView, self.greenView])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.alignment = .fill
-        stackView.spacing = padding
-        self.view.addSubview(stackView)
+        innerStackView = UIStackView(arrangedSubviews: [self.blueView, self.greenView])
+        innerStackView.translatesAutoresizingMaskIntoConstraints = false
+        innerStackView.alignment = .fill
+        innerStackView.distribution = .fillEqually
+        innerStackView.spacing = padding
+        
+        outerStackView = UIStackView(arrangedSubviews: [self.redView, self.innerStackView])
+        outerStackView.translatesAutoresizingMaskIntoConstraints = false
+        outerStackView.alignment = .fill
+        outerStackView.spacing = padding
+        
+        self.view.addSubview(outerStackView)
     }
     
     private func amendConstraints() {
         print("Changed rotation")
-        NSLayoutConstraint.deactivate(landscapeConstraints + portraitConstraints)
         if (self.traitCollection.verticalSizeClass == .compact) {
-            stackView.axis = .vertical
-            NSLayoutConstraint.activate(landscapeConstraints)
+            innerStackView.axis = .vertical
+            outerStackView.axis = .horizontal
         } else {
-            stackView.axis = .horizontal
-            NSLayoutConstraint.activate(portraitConstraints)
+            innerStackView.axis = .horizontal
+            outerStackView.axis = .vertical
         }
     }
     
-    private func setupRedViewConstraints() {
-        redView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: padding).isActive = true
-        
-        redView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: padding).isActive = true
-        
-        landscapeConstraints.append(self.stackView.leadingAnchor.constraint(equalTo: self.redView.trailingAnchor, constant: padding))
-        landscapeConstraints.append(self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: self.redView.bottomAnchor, constant: padding))
-        
-        portraitConstraints.append(self.view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: redView.trailingAnchor, constant: padding))
-        
-        redView.widthAnchor.constraint(equalTo: redView.heightAnchor, multiplier: 1.0).isActive = true
+    private func setupSizeConstraints() {
+        let aspectConstrait = redView.widthAnchor.constraint(equalTo: redView.heightAnchor, multiplier: 1.0)
+        aspectConstrait.priority = UILayoutPriority(999)
+        aspectConstrait.isActive = true
     }
     
     private func setUpStackViewConstraints() {
-        self.blueView.widthAnchor.constraint(equalTo: self.greenView.widthAnchor, multiplier: 1.0).isActive = true
-        self.blueView.heightAnchor.constraint(equalTo: self.greenView.heightAnchor, multiplier: 1.0).isActive = true
-        
-        landscapeConstraints.append(stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: padding))
-        
-        portraitConstraints.append(stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: padding))
-        portraitConstraints.append(stackView.topAnchor.constraint(equalTo: self.redView.bottomAnchor, constant: padding))
-        
-        self.view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: padding).isActive = true
-        
-        self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: self.stackView.bottomAnchor, constant: padding).isActive = true
+        self.outerStackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: padding).isActive = true
+        self.outerStackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: padding).isActive = true
+        self.outerStackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -padding).isActive = true
+        self.outerStackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -padding).isActive = true
     }
     
     private func setUpTextLabel() {
@@ -105,7 +96,7 @@ class AutoLayoutViewController: UIViewController {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
         amendConstraints()
+        super.traitCollectionDidChange(previousTraitCollection)
     }
 }
