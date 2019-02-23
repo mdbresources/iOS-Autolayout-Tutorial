@@ -26,6 +26,7 @@ Solutions to the worksheet can be found on the solutions branch
 - If XCode is telling you that your constraints are ambiguous, that means you don't have enough of them
 - XCode can suggest constraints to you
 - Remember the priority property of `NSLayoutConstraint`
+- Don't forget to set `translatesAutoresizingMaskIntoConstraints` to `false` for each programmatic view
 
 # Screenshots
 
