@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F62C50A221FC0B8005D85C7 /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62C509221FC0B8005D85C7 /* PagerViewController.swift */; };
 		1F62C50C221FCA1A005D85C7 /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62C50B221FCA1A005D85C7 /* AutoLayoutViewController.swift */; };
+		1F6E5EEB2220E4BD0012D8AA /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6E5EEA2220E4BD0012D8AA /* StoryboardViewController.swift */; };
 		1FD2EEFE221F7EC9008EDCBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2EEFD221F7EC9008EDCBC /* AppDelegate.swift */; };
 		1FD2EF00221F7EC9008EDCBC /* BuggyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2EEFF221F7EC9008EDCBC /* BuggyViewController.swift */; };
 		1FD2EF03221F7EC9008EDCBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD2EF01221F7EC9008EDCBC /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		1F62C509221FC0B8005D85C7 /* PagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
 		1F62C50B221FCA1A005D85C7 /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
+		1F6E5EEA2220E4BD0012D8AA /* StoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardViewController.swift; sourceTree = "<group>"; };
 		1FD2EEFA221F7EC9008EDCBC /* AutoLayoutTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD2EEFD221F7EC9008EDCBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FD2EEFF221F7EC9008EDCBC /* BuggyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuggyViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				1FD2EF09221F7ECB008EDCBC /* Info.plist */,
 				1F62C509221FC0B8005D85C7 /* PagerViewController.swift */,
 				1F62C50B221FCA1A005D85C7 /* AutoLayoutViewController.swift */,
+				1F6E5EEA2220E4BD0012D8AA /* StoryboardViewController.swift */,
 			);
 			path = AutoLayoutTutorial;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6E5EEB2220E4BD0012D8AA /* StoryboardViewController.swift in Sources */,
 				1F62C50A221FC0B8005D85C7 /* PagerViewController.swift in Sources */,
 				1FD2EF00221F7EC9008EDCBC /* BuggyViewController.swift in Sources */,
 				1FD2EEFE221F7EC9008EDCBC /* AppDelegate.swift in Sources */,
