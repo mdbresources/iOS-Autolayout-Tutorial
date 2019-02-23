@@ -54,7 +54,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvV-y8-RHR">
-                                                <rect key="frame" x="155.33333333333334" y="266.66666666666669" width="84" height="42"/>
+                                                <rect key="frame" x="155.33333333333334" y="265.33333333333331" width="84" height="42"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="IvV-y8-RHR" secondAttribute="height" multiplier="2:1" id="O6M-kt-6z2"/>
@@ -73,7 +73,7 @@
                                             <constraint firstItem="IvV-y8-RHR" firstAttribute="width" secondItem="IvV-y8-RHR" secondAttribute="height" multiplier="2:1" id="N60-KG-Kgm"/>
                                             <constraint firstItem="IvV-y8-RHR" firstAttribute="centerX" secondItem="XjN-wh-zAx" secondAttribute="centerX" id="Pdr-xB-JTS"/>
                                             <constraint firstAttribute="width" secondItem="XjN-wh-zAx" secondAttribute="height" multiplier="1:1" priority="999" id="VLP-5Y-c1R"/>
-                                            <constraint firstItem="IvV-y8-RHR" firstAttribute="top" secondItem="Fjy-uj-38X" secondAttribute="bottom" constant="51.333333333333343" id="XcN-rX-ZDD"/>
+                                            <constraint firstItem="IvV-y8-RHR" firstAttribute="top" secondItem="Fjy-uj-38X" secondAttribute="bottom" constant="50" id="XcN-rX-ZDD"/>
                                             <constraint firstItem="Fjy-uj-38X" firstAttribute="centerX" secondItem="XjN-wh-zAx" secondAttribute="centerX" id="YAg-C9-T7G"/>
                                             <constraint firstItem="Fjy-uj-38X" firstAttribute="centerY" secondItem="XjN-wh-zAx" secondAttribute="centerY" id="nIC-n4-mMV"/>
                                         </constraints>
